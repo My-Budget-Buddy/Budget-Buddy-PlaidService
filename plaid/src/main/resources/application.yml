@@ -1,0 +1,28 @@
+spring:
+    application:
+        name: plaid-service
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
+
+server:
+  port: 8089
+
+plaid:
+    client:
+        id: ${PLAID_CLIENT_ID}
+    secret: ${PLAID_CLIENT_SECRET}
+    environment: ${PLAID_ENVIRONMENT}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    leaseRenewalIntervalInSeconds: 30
+    hostname: ${AWS_HOSTNAME:localhost}
+
+exchanges:
+  direct: direct-exchange
